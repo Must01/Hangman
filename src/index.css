@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+.letter {
+  @apply w-full text-4xl uppercase aspect-square rounded-lg border-2 border-gray-800 font-bold cursor-pointer text-gray-800 hover:bg-gray-300;
+}
+
+.active {
+  @apply bg-[hsl(200,100%,75%)] text-white;
+}
+
+.inactive {
+  @apply opacity-30;
+}
+
+.letter:hover:not(:disabled),
+.letter:focus:not(:disabled) {
+  @apply bg-[hsl(200,100%,75%)];
+}

@@ -41,24 +41,26 @@ export function Keyboard({
   addGuessedLetter,
 }: keyBoardProps) {
   return (
-    <div className="self-stretch grid grid-cols-[repeat(auto-fit,minmax(75px,1fr))]  gap-2">
-      {KEYS.map((letter) => {
-        const isActive = activeLetters.includes(letter);
-        const isInactive = inactiveLetters.includes(letter);
+    <div className="bg-white rounded-2xl shadow-xl p-6">
+      <div className="grid grid-cols-7 sm:grid-cols-9 md:grid-cols-13 gap-2">
+        {KEYS.map((letter) => {
+          const isActive = activeLetters.includes(letter);
+          const isInactive = inactiveLetters.includes(letter);
 
-        return (
-          <button
-            onClick={() => addGuessedLetter(letter)}
-            className={`letter ${isActive ? "active" : ""} ${
-              isInactive ? "inactive" : ""
-            }`}
-            key={letter}
-            disabled={isInactive || isActive || disable}
-          >
-            {letter}
-          </button>
-        );
-      })}
+          return (
+            <button
+              onClick={() => addGuessedLetter(letter)}
+              className={`letter ${isActive ? "active" : ""} ${
+                isInactive ? "inactive" : ""
+              }`}
+              key={letter}
+              disabled={isInactive || isActive || disable}
+            >
+              {letter}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

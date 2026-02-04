@@ -1,23 +1,21 @@
 const Head = (
-  <div className="absolute h-16 w-16 border-4 border-slate-700 rounded-full top-12 -right-8 animate-fadeIn" />
+  <div className="absolute h-20 top-9 -right-9 w-20 bg-transparent border-8 border-black rounded-full" />
 );
-const Body = (
-  <div className="absolute h-24 w-2 bg-slate-700 top-28 right-0 animate-fadeIn" />
-);
-const RightArm = (
-  <div className="absolute h-2 w-16 bg-slate-700 rotate-[30deg] origin-left top-32 right-0 animate-fadeIn" />
+const Body = <div className="absolute h-20 top-29 right-0 w-2.5 bg-black " />;
+const RigthArm = (
+  <div className="absolute h-2.5 rotate-12 top-29 right-0 w-20 bg-black " />
 );
 const LeftArm = (
-  <div className="absolute h-2 w-16 bg-slate-700 -rotate-[30deg] origin-right top-32 -right-16 animate-fadeIn" />
-);
-const RightLeg = (
-  <div className="absolute h-2 w-20 bg-slate-700 rotate-[60deg] origin-left top-52 right-0 animate-fadeIn" />
+  <div className="absolute h-20 rotate-70 top-19 -right-9 w-2.5 bg-black " />
 );
 const LeftLeg = (
-  <div className="absolute h-2 w-20 bg-slate-700 -rotate-[60deg] origin-right top-52 -right-20 animate-fadeIn" />
+  <div className="absolute h-2.5 -rotate-60 top-55 -right-3.5 w-20 bg-black " />
+);
+const RigthLeg = (
+  <div className="absolute h-2.5 rotate-60 top-55 -right-14 w-20 bg-black " />
 );
 
-const bodyParts = [Head, Body, RightArm, LeftArm, RightLeg, LeftLeg];
+const bodyParts = [Head, Body, RigthArm, LeftArm, LeftLeg, RigthLeg];
 
 type hangmanProps = {
   numGuess: number;
@@ -25,13 +23,12 @@ type hangmanProps = {
 
 export function Hangman({ numGuess }: hangmanProps) {
   return (
-    <div className="relative w-64 h-80">
-      {bodyParts.slice(0, numGuess)}
-
-      <div className="absolute top-0 left-28 w-2 h-12 bg-slate-700" />
-      <div className="absolute top-0 left-28 w-32 h-2 bg-slate-700" />
-      <div className="absolute top-0 right-8 w-2 h-64 bg-slate-700" />
-      <div className="absolute bottom-16 right-0 w-48 h-2 bg-slate-700" />
+    <div className="relative">
+      {numGuess == 0 ? "" : bodyParts.slice(0, numGuess)}
+      <div className="absolute ml-30 h-10 top-0 right-0 w-2.5 mx-auto bg-black" />
+      <div className="ml-30 h-2.5 w-52 mx-auto bg-black" />
+      <div className="h-90 w-2.5 ml-30 bg-black" />
+      <div className="h-2.5 w-64 bg-black" />
     </div>
   );
 }

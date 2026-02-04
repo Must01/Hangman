@@ -7,27 +7,21 @@ export function Word({ reveal = false, word, letters }: wordProps) {
   const guessedLetters = letters;
 
   return (
-    <div className="flex gap-3 flex-wrap justify-center">
+    <div className="flex gap-2 text-5xl font-bold uppercase font-mono">
       {word.split("").map((lett, index) => (
-        <div
-          key={index}
-          className="relative flex items-center justify-center w-12 h-16 sm:w-16 sm:h-20"
-        >
-          <div className="absolute bottom-0 w-full h-1 bg-slate-300 rounded-full" />
+        <span className="border-b-5 min-w-6.5 border-black" key={index}>
           <span
-            className={`text-4xl sm:text-5xl font-bold uppercase transition-all duration-300 ${
-              guessedLetters.includes(lett) || reveal
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-0"
+            className={`${
+              guessedLetters.includes(lett) || reveal ? "block" : "hidden"
             } ${
               !guessedLetters.includes(lett) && reveal
-                ? "text-red-500"
-                : "text-slate-800"
+                ? "text-red-400"
+                : "text-green-400"
             }`}
           >
             {lett}
           </span>
-        </div>
+        </span>
       ))}
     </div>
   );
